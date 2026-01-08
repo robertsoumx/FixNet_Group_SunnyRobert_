@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class DataGenerator {
+public class DataGenerator_Sunny {
     // Generates 10,000 fake movies for testing
     private static final String[] ADJ = {"Angry", "Frozen", "Lost", "Eternal", "Dark", "Infinite", "Secret", "Pulp"};
     private static final String[] NOUN = {"Samurai", "Matrix", "Knight", "Hope", "Empire", "Love", "Sky", "Fiction"};

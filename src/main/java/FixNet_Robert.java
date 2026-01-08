@@ -12,12 +12,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
-public class FixNet extends Application {
+public class FixNet_Robert extends Application {
 
     // --- YOUR BACKEND ---
-    private MovieBST catalogBST;
-    private MovieLinkedList historyList;
-    private HashMap<String, Movie> movieLookup;
+    private MovieBST_Sunny catalogBST;
+    private MovieLinkedList_Robert historyList;
+    private HashMap<String, Movie_Sunny> movieLookup;
 
     // --- GUI STATE ---
     private ObservableList<String> guiCatalog;
@@ -28,8 +28,8 @@ public class FixNet extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        catalogBST = new MovieBST();
-        historyList = new MovieLinkedList();
+        catalogBST = new MovieBST_Sunny();
+        historyList = new MovieLinkedList_Robert();
         movieLookup = new HashMap<>();
         guiCatalog = FXCollections.observableArrayList();
         guiHistory = FXCollections.observableArrayList();
@@ -80,7 +80,7 @@ public class FixNet extends Application {
         watchBtn.setOnAction(e -> {
             String selectedStr = catalogView.getSelectionModel().getSelectedItem();
             if (selectedStr != null) {
-                Movie m = movieLookup.get(selectedStr);
+                Movie_Sunny m = movieLookup.get(selectedStr);
                 // TODO: Uncomment after implementing Linked List
                 // historyList.addFirst(m);
                 // guiHistory.setAll(historyList.getHistoryList());
@@ -98,8 +98,8 @@ public class FixNet extends Application {
         });
 
         Scene scene = new Scene(root, 800, 600);
-        if(getClass().getResource("/style.css") != null)
-            scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        if(getClass().getResource("/style_Robert.css") != null)
+            scene.getStylesheets().add(getClass().getResource("/style_Robert.css").toExternalForm());
 
         primaryStage.setTitle("FixNet - Definitely Not Netflix");
         primaryStage.setScene(scene);
@@ -114,7 +114,7 @@ public class FixNet extends Application {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                Movie m = new Movie(parts[0], Double.parseDouble(parts[1]));
+                Movie_Sunny m = new Movie_Sunny(parts[0], Double.parseDouble(parts[1]));
                 movieLookup.put(m.toString(), m);
 
                 // TODO: Uncomment after implementing BST

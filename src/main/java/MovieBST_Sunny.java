@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
-public class MovieBST {
+public class MovieBST_Sunny {
 
     // TODO: Define inner Node class
     // private class Node { ... }
 
     // private Node root;
 
-    public void insert(Movie m) {
+    public void insert(Movie_Sunny m) {
         // root = insertRec(root, m);
     }
 
     // TODO: Implement recursive insert (Left < Root < Right)
 
-    public Movie search(String title) {
+    public Movie_Sunny search(String title) {
         // return searchRec(root, title);
         return null;
     }
