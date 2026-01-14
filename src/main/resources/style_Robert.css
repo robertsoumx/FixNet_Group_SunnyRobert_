@@ -1,5 +1,16 @@
-.root { -fx-background-color: #141414; }
-.label { -fx-text-fill: #999; }
-.list-view { -fx-background-color: #1F1F1F; }
-.list-cell { -fx-text-fill: #e5e5e5; -fx-background-color: #1F1F1F; }
-.list-cell:filled:selected { -fx-background-color: #E50914; }
+.root {
+-fx-background-color: #FFFFFF;
+}
+.label {
+-fx-text-fill: #444;
+}
+
+.list-view /* Left and right list boxes */ {
+-fx-background-color: #EEEEEE;
+}
+.list-cell {
+-fx-text-fill: #000000; -fx-background-color: #EECCEE;
+}
+.list-cell:filled:selected {
+-fx-background-color: #FFFFFF;
+}

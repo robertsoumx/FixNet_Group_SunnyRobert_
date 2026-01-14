@@ -6,6 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -75,6 +77,15 @@ public class FixNet_Robert extends Application {
         watchBtn.setMaxWidth(Double.MAX_VALUE);
         root.setBottom(watchBtn);
 
+        // Delete Button
+        Button deleteBtn = new Button("DELETE TOP HISTORY");
+        deleteBtn.setMaxWidth(Double.MAX_VALUE);
+
+        // Layout
+        VBox bottomBox = new VBox(8, watchBtn, deleteBtn);
+        bottomBox.setPadding(new Insets(10));
+        root.setBottom(bottomBox);
+
         // --- EVENT HANDLERS (CONNECT YOUR CODE HERE) ---
 
         watchBtn.setOnAction(e -> {
@@ -82,19 +93,24 @@ public class FixNet_Robert extends Application {
             if (selectedStr != null) {
                 Movie_Sunny m = movieLookup.get(selectedStr);
                 // TODO: Uncomment after implementing Linked List
-                // historyList.addFirst(m);
-                // guiHistory.setAll(historyList.getHistoryList());
+                historyList.addFirst(m);
+                guiHistory.setAll(historyList.getHistoryList());
             }
+        });
+
+        deleteBtn.setOnAction(e -> {
+            historyList.removeFirst();
+            guiHistory.setAll(historyList.getHistoryList());
         });
 
         searchBtn.setOnAction(e -> {
             String query = searchField.getText();
             // TODO: Uncomment after implementing BST Search
-            // Movie result = catalogBST.search(query);
-            // if (result != null) {
-            //    catalogView.getSelectionModel().select(result.toString());
-            //    catalogView.scrollTo(result.toString());
-            // }
+            Movie_Sunny result = catalogBST.search(query);
+            if (result != null) {
+                catalogView.getSelectionModel().select(result.toString());
+                catalogView.scrollTo(result.toString());
+            }
         });
 
         Scene scene = new Scene(root, 800, 600);
@@ -116,12 +132,11 @@ public class FixNet_Robert extends Application {
                 String[] parts = line.split(",");
                 Movie_Sunny m = new Movie_Sunny(parts[0], Double.parseDouble(parts[1]));
                 movieLookup.put(m.toString(), m);
-
                 // TODO: Uncomment after implementing BST
-                // catalogBST.insert(m);
+                catalogBST.insert(m);
             }
             // TODO: Uncomment after implementing BST
-            // guiCatalog.setAll(catalogBST.getSortedTitles());
+            guiCatalog.setAll(catalogBST.getSortedTitles());
         } catch (Exception e) { e.printStackTrace(); }
     }
 }

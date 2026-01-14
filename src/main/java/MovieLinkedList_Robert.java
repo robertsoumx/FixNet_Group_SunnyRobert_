@@ -13,9 +13,16 @@ public class MovieLinkedList_Robert {
         }
     }
 
+    public Movie_Sunny removeFirst() {
+        if (head == null) return null;
+        Movie_Sunny removed = head.nextMovie;
+        head = head.nextNode;
+        return removed;
+    }
+
     private Node head;
     public MovieLinkedList_Robert() {
-        // head = null;
+        head = null;
     }
 
     public void addFirst(Movie_Sunny m) {
