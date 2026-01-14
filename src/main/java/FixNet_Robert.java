@@ -81,8 +81,12 @@ public class FixNet_Robert extends Application {
         Button deleteBtn = new Button("DELETE TOP HISTORY");
         deleteBtn.setMaxWidth(Double.MAX_VALUE);
 
+        // Clear History Button
+        Button clearHistoryBtn = new Button("CLEAR HISTORY");
+        clearHistoryBtn.setMaxWidth(Double.MAX_VALUE);
+
         // Layout
-        VBox bottomBox = new VBox(8, watchBtn, deleteBtn);
+        VBox bottomBox = new VBox(8, watchBtn, deleteBtn, clearHistoryBtn);
         bottomBox.setPadding(new Insets(10));
         root.setBottom(bottomBox);
 
@@ -100,6 +104,11 @@ public class FixNet_Robert extends Application {
 
         deleteBtn.setOnAction(e -> {
             historyList.removeFirst();
+            guiHistory.setAll(historyList.getHistoryList());
+        });
+
+        clearHistoryBtn.setOnAction(e -> {
+            historyList = new MovieLinkedList_Robert();
             guiHistory.setAll(historyList.getHistoryList());
         });
 
