@@ -8,12 +8,10 @@ public class Movie_Sunny {
     }
 
     // Returns negative if this < other, positive if this > other
-    public int compareTo(Movie_Sunny other) {
-        return this.title.compareToIgnoreCase(other.title);
+    public int compareTo(Movie_Sunny other) {return this.title.compareToIgnoreCase(other.title);
     }
 
     @Override
-    public String toString() {
-        return title + " (" + rating + ")";
+    public String toString() {return title + " (" + rating + ")";
     }
 }
