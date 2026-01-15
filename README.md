@@ -1,0 +1,1 @@
+This project is a polite rip-off from Netflix. Functionalities include self-generating 10000 movies, recursively searching for movies (Movie title + #number), watching movies and putting it to the watch history list, clearing the watch history, and removing items from the watch history. The GUI is tailored to perfection with color schemes fine-tuned using a CSS file.
