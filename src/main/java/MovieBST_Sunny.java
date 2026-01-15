@@ -54,10 +54,15 @@ public class MovieBST_Sunny {
 
     private Movie_Sunny searchRec(Node current, String title) {
         if (current == null) return null;
-
-        int cmp = title.compareToIgnoreCase(current.movie.getTitle());
-
-        if (cmp == 0) return current.movie;
+        int cmp = 0;
+        if (current.movie.getTitle().contains("#")) {
+            int index = current.movie.getTitle().indexOf("#");
+            String actualString = current.movie.getTitle().substring(0,index - 1);
+            cmp = title.compareToIgnoreCase(actualString);
+        }
+        if (cmp == 0) {
+            return current.movie;
+        }
         else if (cmp < 0) return searchRec(current.left, title);
         else return searchRec(current.right, title);
     }
